@@ -1,4 +1,4 @@
-﻿# KNU-AlgorithmStudy
+# KNU-AlgorithmStudy
 
 ### 알고리즘 사이트
 
@@ -19,7 +19,7 @@
 
 
 
-|       | 1                                                            | 2                                                            | 3    |
-| :---: | ------------------------------------------------------------ | ------------------------------------------------------------ | :--- |
-| 1주차 | [DFS와 BFS](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/baekjoon/1260.%20DFS%EC%99%80%20BFS) | [아기상어](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/baekjoon/16236.%20%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B4) |      |
+|       | 1         | 2        | 3        |
+| :---: | --------- | -------- | :------- |
+| 1주차 | DFS와 BFS | 아기상어 | 치킨배달 |
 
