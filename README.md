@@ -10,6 +10,8 @@
 
 
 
+
+
 ## :fire:알고리즘 스터디:fire: 진행방식
 
 * 매주 3문제씩 풀이하고 리뷰
@@ -17,7 +19,7 @@
 * 매주 한명당 1문제씩 문제 선정 후 업로드
 * 주마다 풀이 코드및 문제 풀이 설명을 업로드
 
-
+* [git 사용법 정리](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/Reference/Git%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95)
 
 |       | 1         | 2        | 3        |
 | :---: | --------- | -------- | :------- |
