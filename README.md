@@ -21,7 +21,8 @@
 
 * [git 사용법 정리](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/Reference/Git%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95)
 
-|       | 1         | 2        | 3        |
-| :---: | --------- | -------- | :------- |
-| 1주차 | DFS와 BFS | 아기상어 | 치킨배달 |
+|       | 1          | 2        | 3        |
+| :---: | ---------- | -------- | :------- |
+| 1주차 | DFS와 BFS  | 아기상어 | 치킨배달 |
+| 2주차 | 원판돌리기 |          |          |
 
