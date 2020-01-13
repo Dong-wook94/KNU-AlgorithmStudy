@@ -40,7 +40,7 @@ int main() {
 	cin >> rotate_num;
 	for (int i = 0; i < circle_size; i++) {
 		temp.push_back(0);
-	} 
+	}
 	circle.push_back(temp);
 	temp.clear();
 	//1번원판부터 시작하기때문에 0번 원판 채움
@@ -72,9 +72,9 @@ int main() {
 	}
 	cout << sum_val();
 
-} 
+}
 void del_val() {
-	
+
 	for (int i = 1; i <= circle_num; i++) {
 		for (int j = 0; j < circle_size; j++) {
 			if (visited[i][j] == 2) {
@@ -84,38 +84,42 @@ void del_val() {
 	}
 }
 void process() {
-
+	int sum = sum_val();
+	int survived = survived_count();
 	for (int i = 1; i <= circle_num; i++) {
 		for (int j = 0; j < circle_size; j++) {
 			if (circle[i][j] > 0) {
-				if (float(circle[i][j]) > float(sum_val()) / float(survived_count())) {
+				if (float(circle[i][j]) > float(sum) / float(survived)) {
 					circle[i][j] = circle[i][j] - 1;
 				}
-				else {
+
+				else if (float(circle[i][j]) < float(sum) / float(survived)) {
 					circle[i][j] = circle[i][j] + 1;
+				}
+				else {
 				}
 			}
 		}
 	}
-	
+
 }
 int survived_count() {
-	int count=0;
+	int count = 0;
 	for (int i = 1; i <= circle_num; i++) {
 		for (int j = 0; j < circle_size; j++) {
-			if (visited[i][j] == 2) {
+			if (circle[i][j] > 0) {
 				count++;
 			}
 		}
 	}
 	return count;
 }
-int checked_visited() {// flag 가 1이면 인접점 존재 0이면 없음
-	int flag=0;
+int checked_visited() {// flag 가 1이면 인접점이 존재 0이면 없음
+	int flag = 0;
 
 	for (int i = 1; i <= circle_num; i++) {
 		for (int j = 0; j < circle_size; j++) {
-			if (visited[i][j] == 2) {
+			if (visited[i][j] == 2 && circle[i][j] > 0) {
 				flag = 1;
 			}
 		}
@@ -133,30 +137,30 @@ int sum_val() {
 	return sum;
 }
 
-void rotate_func(int number,int direct,int count) {// 회전후 삭제 까지 담당
-	//direct 0 시계방향, direct 1 반시계방향
+void rotate_func(int number, int direct, int count) {// 회전후 삭제 까지 담당
+													 //direct 0 시계방향, direct 1 반시계방향
 	switch (direct) {
-		case 0:
-			for (int i = 1; i <= circle_num; i++) {
-				if (i%number == 0) {
-					for (int j = 0; j < count; j++) {
-						clockwise_rotate(i);
-					}
+	case 0:
+		for (int i = 1; i <= circle_num; i++) {
+			if (i%number == 0) {
+				for (int j = 0; j < count; j++) {
+					clockwise_rotate(i);
 				}
 			}
-			break;
-		case 1:
-			for (int i = 1; i <= circle_size; i++) {
-				if (i%number == 0) {
-					for (int j = 0; j < count; j++) {
-						counterwise_rotate(i);
-					}
+		}
+		break;
+	case 1:
+		for (int i = 1; i <= circle_num; i++) {
+			if (i%number == 0) {
+				for (int j = 0; j < count; j++) {
+					counterwise_rotate(i);
 				}
 			}
-			break;
-		default:
-			cout << "rotate error\n";
-			break;
+		}
+		break;
+	default:
+		cout << "rotate error\n";
+		break;
 	}
 }
 
@@ -173,7 +177,7 @@ void counterwise_rotate(int i) { // 반시계방향 회전
 	circle[i].push_back(temp);
 }
 void dfs(int row, int col) {
-	
+
 	location temp;
 	location move;
 	int flag = 0; //현재 stack 을 pop 시킬지 말지 결정
@@ -192,7 +196,7 @@ void dfs(int row, int col) {
 					move.col = circle_size - 1;
 				}
 				if (move.col >= circle_size) {
-					move.col = 1;
+					move.col = 0;
 				}
 				if (move.row <= circle_num && move.row >= 1) {
 					if (visited[move.row][move.col] == 0 && circle[move.row][move.col] == circle[temp.row][temp.col]) {
