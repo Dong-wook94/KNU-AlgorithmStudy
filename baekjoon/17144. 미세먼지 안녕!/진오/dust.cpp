@@ -15,6 +15,9 @@ void down_move();
 int sum_arr();
 
 int main() {
+
+
+
 	cin >> row_num;
 	cin >> col_num;
 	cin >> sec;
@@ -52,6 +55,7 @@ void down_move() {
 	}
 	arr[row][2] = 0;// 공기청정기에서 나온공기
 	arr[row][1] = -1; // 공기청정해주기
+
 }
 void up_move() {
 	int row;
