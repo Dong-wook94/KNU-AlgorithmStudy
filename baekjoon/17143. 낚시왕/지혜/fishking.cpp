@@ -1,22 +1,39 @@
-# 17143. 낚시왕
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+#include <queue>
+#include <stack>
+#include <stdlib.h>
+#include <math.h>
+using namespace std;
+typedef struct shark{
+    int row;
+    int col;
+    int speed;
+    int direction;
+    int size;
+    int live;
+    shark(){}
+    shark(int a,int b,int c,int d,int e){row=a;col=b;speed=c;direction=d;size=e;live=1;}
+}shark;
 
-🦈 상어는 먹어서 없애기로 결정 지은 문제 🦈
+int r,c,m;
+vector<shark> s;
+                // 1 2 3 4
+int dir_r[5] = {0,-1,1,0,0};
+int dir_c[5] = {0,0,0,1,-1};
+int map[101][101];
 
-앞으로 봐주지 않고 샥스핀이랑 캐비어를 왕창 먹어서 상어 멸종하게 만들 것
+void initMap(){
+    if(s.size()){
+        for(int i=0; i<s.size(); i++){
+            if(s[i].live == 1){
+                map[s[i].row][s[i].col] = -1;
+            }
+        }
+    }
+}
 
-그리고 저는..다시는 벡터를 지우지 않겠습니다...
-
-벡터 지우면..눈물 나는 일이 많음ㅠㅠ
-
-
-
-벡터 지우면 모다? 나는 멍청이..😡
-
-
-
-1. 상어 이동
-
-~~~c++
 void shark_move(){
 
     int originPositionC = 2*(c-1);
@@ -72,6 +89,46 @@ void shark_move(){
     }
 }
 
-~~~
 
-원래 자기자리로 자기방향 그대로 돌아오는 경우 계산해서 나눠주고 돌리기~~~
+int main(){
+
+    scanf("%d %d %d",&r,&c,&m);
+
+    for(int i=1; i<=r; i++){
+        for(int j=1; j<=c; j++){
+            map[i][j] = -1;
+        }
+    }
+
+    for(int i=0; i<m; i++){
+        int a,b,c,d,e;
+        scanf("%d %d %d %d %d",&a,&b,&c,&d,&e);
+        s.push_back(shark(a,b,c,d,e));
+        map[a][b] = i;
+    }
+
+    int result = 0;
+    for(int i=1; i<=c; i++){
+        if(s.size()){
+            // 낚시왕 상어 잡음
+            for(int j=1; j<=r; j++){
+                if(map[j][i] != -1){
+                    result += s[map[j][i]].size;
+                    int index = map[j][i];
+                    map[j][i] = -1;
+                    s[index].live = 0;
+                    break;
+                }
+            }
+
+
+            initMap();
+
+            // 상어 이동
+            shark_move();
+
+        }
+    }
+    printf("%d\n",result);
+    return 0;
+}
