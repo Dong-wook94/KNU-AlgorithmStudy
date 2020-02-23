@@ -1,3 +1,8 @@
-# 17143. 낚시왕
+# 주사위 윷놀이 
 
-문제 링크 : https://www.acmicpc.net/problem/17143
+> 삼성 역량테스트 기출문제
+
+문제링크 : https://www.acmicpc.net/problem/17143
+
+
+
