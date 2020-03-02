@@ -84,7 +84,7 @@ public class Main {
 
             for(int index=num;index<=virus_cnt;index++){
                 selected[depth]=virus_arr.get(index);
-                dfs(index+1,depth+1); // 씨발 이게 문제네
+                dfs(index+1,depth+1); 
             }
         }
 
