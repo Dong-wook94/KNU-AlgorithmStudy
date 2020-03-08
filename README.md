@@ -8,7 +8,7 @@
 
 [BAEKJOON](https://www.acmicpc.net/)
 
-
+[Programmers](https://programmers.co.kr/learn/challenges?tab=all_challenges)
 
 
 
@@ -32,4 +32,5 @@
 | 7주차 | 연구소3 | 경사로 | 모든것이1이된다 |
 | 8주차 | 새로운 게임2 | 이차원 배열과 연산 | 사다리 조작 |
 | 9주차 | 주사위 윷놀이 | 구슬탈출2 | 다리 만들기 2 |
+| 10주차 | [기둥과 보 설치](https://programmers.co.kr/learn/courses/30/lessons/60061) |  |  |
 
