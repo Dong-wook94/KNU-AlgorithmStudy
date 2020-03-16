@@ -33,4 +33,5 @@
 | 8주차 | 새로운 게임2 | 이차원 배열과 연산 | 사다리 조작 |
 | 9주차 | 주사위 윷놀이 | 구슬탈출2 | 다리 만들기 2 |
 | 10주차 | [기둥과 보 설치](https://programmers.co.kr/learn/courses/30/lessons/60061) | [퍼즐](https://www.acmicpc.net/problem/1525) | [배열  돌리기 4](https://www.acmicpc.net/problem/17406) |
+| 11주차 |  |  | [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057) |
 
