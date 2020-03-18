@@ -51,6 +51,7 @@ void dfs(int y, int x){
 			for (int j = x; j < x + l; j++)
 				board[i][j] = 0;
 
+		// efficient way
 		dfs(y, x + l);
 
 		for (int i = y; i < y + l; i++)
