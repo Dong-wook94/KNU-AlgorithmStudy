@@ -1,10 +1,45 @@
 # [2020 카카오 공채] 문자열 압축
 
-그냥 잘라서비교하는 문제
+## 문제 알고리즘
+- 구현 문제
 
+## 풀이방법
+1. 해당 문자열의 크기의 반부터 1까지 반복되는 경우를 단순 비교한다.
+2. 비교한 문자열의 길이가 더 짧은 경우 반복한다.
 
+* 반복되는 숫자가 10이상인 경우를 더 고려해줘야 한다.
 
-kmp처럼 확인한 바로 뒤부터 비교하는것도아니고 단위 만큼만 체크하고 비교하면 된다. 전에 시험칠때는 이문제를 비교한 뒤부터해서 한번 틀렸었는데 한번 봤던 문제라 그런지 실수 없이 제대로 확인했다.
+- 핵심 코드
+~~~c++
+int solution(string s) {
+	int slen = s.length();
+	int ans = slen;
+	
+	// len--
+	for (int len = slen / 2; len > 0; len--) {
+		int start_pos = 0;
+		int t_len = slen;
+		int cnt = 0;
+
+		while (start_pos + len <= slen) {
+			// if sub string is same pattern
+			if (s.substr(start_pos, len).compare(s.substr((start_pos + len), len)) == 0) {
+				cnt++;
+			}
+			else {
+				if (cnt >= 1) {
+					t_len -= (cnt * len);		    // delete same pattern
+					t_len += getSize(cnt + 1);	// add num, +1 is (I'm not count original key)
+				}
+				cnt = 0;
+			}
+			start_pos += len;
+		}
+		ans = min(ans, t_len);
+	}
+	return ans;
+}
+~~~
 
 
 
