@@ -90,7 +90,7 @@ bool canTurnRobot(Robot cur, int next_row, int next_col, vector<vector<int>> boa
 
 int BFS(vector<vector<int>> board) {
 	q.push(Robot(0, 0, HORIZONTAL, 0));
-
+	visited[HORIZONTAL][0][0] = 1;
 	while (!q.empty()) {
 		Robot cur = q.front();
 		q.pop();
