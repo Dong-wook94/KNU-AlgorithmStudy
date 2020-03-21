@@ -1,16 +1,27 @@
-# [2020 카카오 공채] 블록 이동하기
+#include	<iostream>
+#include	<vector>
+#include	<string>
+#include	<queue>
+#include	<cmath>
+using namespace std;
 
-## 문제 알고리즘
-- bfs
+#define MAX 100
 
-## 풀이방법
-1. bfs를 통한 가능 경로를 탐색한다.
-2. 추가적인 코드는 다음의 그림에 기반한다
+struct robot {
+	int y, x;	// y, x position
+	int dir;	// if dir is 1 horizontal. else vertical
+	int cnt;	// cnt
+	robot(int t_y, int t_x, bool t_dir, int t_count) {
+		y = t_y;		x = t_x;		dir = t_dir;	cnt = t_count;
+	}
+};
 
-![관련풀이](./solution2.jpg)
+pair<int, int> turnDir[4] = { {-1, 0}, {0, 0}, {-1, 1}, {0, 1} };	// horizontal <y, x>. vertical <x, y>
+pair<int, int> safeTurn[4] = { {0, 1}, {1, 1}, {0, -1}, {1, -1} };	// horizontal <y, x>. vertical <x, y>
+pair<int, int> goDir[4] = { {0, -1}, {-1, 0}, {0, 1}, {1, 0} };
+bool visited[MAX][MAX][2];
+int N;
 
-- 핵심 코드
-~~~c++
 bool isSafeTurn(vector<vector<int>> board, int y, int x, int dir, int i) {
 	if (dir)
 		return (board[y + safeTurn[i].first][x + safeTurn[i].second] == 1) ? false : true;
@@ -30,18 +41,18 @@ int bfs(vector<vector<int>> board, int y, int x) {
 		q.pop();
 
 		// end state
-		if (curDir) {	// 가로
+		if (curDir) {	// ����
 			if (curY == N - 1 && (curX + 1) == N - 1)
 				return curCnt;
 		}
-		else {			// 세로
+		else {			// ����
 			if ((curY + 1) == N - 1 && curX == N - 1)
 				return curCnt;
 		}
 
-		// turn case (회전)
+		// turn case (ȸ��)
 		for (int i = 0; i < 4; i++) {
-			if (curDir == 1) {	// 가로 -> 세로
+			if (curDir == 1) {	// ���� -> ����
 				int nextY = curY + turnDir[i].first;
 				int nextX = curX + turnDir[i].second;
 				int nextDir = (curDir == 0) ? 1 : 0;
@@ -54,7 +65,7 @@ int bfs(vector<vector<int>> board, int y, int x) {
 							visited[nextY][nextX][nextDir] = true;
 						}
 			}
-			else {				// 세로 -> 가로
+			else {				// ���� -> ����
 				int nextY = curY + turnDir[i].second;
 				int nextX = curX + turnDir[i].first;
 				int nextDir = (curDir == 0) ? 1 : 0;
@@ -69,9 +80,9 @@ int bfs(vector<vector<int>> board, int y, int x) {
 			}
 		}
 
-		// go back case (앞뒤로 왔다갔다하는 경우)
+		// go back case (�յڷ� �Դٰ����ϴ� ���)
 		for (int i = 0; i < 4; i++) {
-			if (curDir) {		// 가로 -> 가로
+			if (curDir) {		// ���� -> ����
 				int nextY = curY + goDir[i].first;
 				int nextX = curX + goDir[i].second;
 
@@ -83,7 +94,7 @@ int bfs(vector<vector<int>> board, int y, int x) {
 					}
 				}
 			}
-			else {				// 세로 -> 세로
+			else {				// ���� -> ����
 				int nextY = curY + goDir[i].first;
 				int nextX = curX + goDir[i].second;
 
@@ -99,9 +110,17 @@ int bfs(vector<vector<int>> board, int y, int x) {
 	}
 	return -1;	// error code
 }
+
+int solution(vector<vector<int>> board) {
+	N = board.size();
+
+	int answer = bfs(board, 0, 0);
+
+	return answer;
 }
-~~~
 
-- 코드 특이사항
-문제의 특정부분을 잘못이해해서 틀렸다.
+int main() {
+	vector<vector<int>> board = { {0, 0, 0, 1, 1}, {0, 0, 0, 1, 0}, {0, 1, 0, 1, 1}, {1, 1, 0, 0, 1}, {0, 0, 0, 0, 0} };
 
+	cout << solution(board) << "\n";
+}
