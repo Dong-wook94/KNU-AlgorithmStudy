@@ -7,8 +7,7 @@
 1. bfs를 통한 가능 경로를 탐색한다.
 2. 추가적인 코드는 다음의 그림에 기반한다
 
-현재 36점 풀이
-![관련풀이](./solution.jpg)
+![관련풀이](./solution2.jpg)
 
 - 핵심 코드
 ~~~c++
@@ -64,5 +63,6 @@ int bfs(vector<vector<int>> board, int y1, int x1, int y2, int x2) {
 }
 ~~~
 
-
+- 코드 특이사항
+문제의 특정부분을 잘못이해해서 틀렸다.
 
