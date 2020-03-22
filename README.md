@@ -27,11 +27,11 @@
 | 2주차 | 원판돌리기 | 퇴사     |  스타트와링크 |
 | 3주차 | 게리맨더링2 | 미세먼지 안녕! | 캐슬디펜스 |
 | 4주차 |  | 나무재테크 |   |
-| 5주차 | 인구이동 | 테트로미노 | 스팟마트 |
-| 6주차 | 타일링 | 상원이의 생일파티 | 낚시왕 |
-| 7주차 | 연구소3 | 경사로 | 모든것이1이된다 |
-| 8주차 | 새로운 게임2 | 이차원 배열과 연산 | 사다리 조작 |
-| 9주차 | 주사위 윷놀이 | 구슬탈출2 | 다리 만들기 2 |
+| 5주차 | [인구이동](https://www.acmicpc.net/problem/16234) | [테트로미노](https://www.acmicpc.net/problem/14500) | [스팟마트](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW5jNL968dwDFATQ&categoryId=AW5jNL968dwDFATQ&categoryType=CODE) |
+| 6주차 | [타일링](https://www.acmicpc.net/problem/1793) | [상원이의 생일파티](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWWO3kT6F2oDFAV4&categoryId=AWWO3kT6F2oDFAV4&categoryType=CODE) | [낚시왕](https://www.acmicpc.net/problem/17143) |
+| 7주차 | [연구소3](https://www.acmicpc.net/problem/17142) | [경사로](https://www.acmicpc.net/problem/14890) | [모든것이1이된다](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWxpXbya0eIDFAWL&categoryId=AWxpXbya0eIDFAWL&categoryType=CODE) |
+| 8주차 | [새로운 게임2](https://www.acmicpc.net/problem/17837) | [이차원 배열과 연산](https://www.acmicpc.net/problem/17140) | [사다리 조작](https://www.acmicpc.net/problem/15684) |
+| 9주차 | [주사위 윷놀이](https://www.acmicpc.net/problem/17825) | [구슬탈출2](https://www.acmicpc.net/problem/13460) | [다리 만들기 2](https://www.acmicpc.net/problem/17472) |
 | 10주차 | [기둥과 보 설치](https://programmers.co.kr/learn/courses/30/lessons/60061) | [퍼즐](https://www.acmicpc.net/problem/1525) | [배열  돌리기 4](https://www.acmicpc.net/problem/17406) |
 | 11주차 | [블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063) | [색종이 붙이기](https://www.acmicpc.net/problem/17136) | [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057) |
 
