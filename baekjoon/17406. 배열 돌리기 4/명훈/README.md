@@ -1,132 +1,85 @@
 # 배열돌리기
 > 삼성 sw 기출문제
 
-### 풀이
+## 문제 알고리즘
+- dfs문제
 
-이 문제의 중요 고려할점은 2가지이다.
+## 풀이방법
+1. dfs를 통한 경로 가능한 경우를 다 구한다.
+2. 재귀적으로 dfs를 호출하면서 K개의 회전 순서를 다 돌린 이후, 최소 합을 구한다.
+3. 돌린 이후에는 다시 반대편으로 돌려준다.
 
-1. 배열을 회전시키기
-2. 모든경우를 고려하기
+- 핵심 코드
+~~~c++int board[MAX][MAX];						// array
+int N, M, K;								// N, M, K
+pair<pair<int, int>, int> K_list[K_MAX];	// <<r, c>, s> 
+bool visited[K_MAX];
+int ans = INF;
 
-
-
-1번의 경우에는 
-
-1. 모서리에 도달시 방향전환
-2. 시작지점을 temp 변수에 넣어둔 뒤 하나씩 땡기는 방식으로 회전시켰다.
-
-
-
-2번의 경우에는 전에 풀었을때 dfs로 한번 풀어봐서 이번에는 next_permutation을 이용하여 풀어보았다.
-
-
-
-### 소스코드
-
-~~~ c++
-#include <stdio.h>
-#include <vector>
-#include <algorithm>
-#include <limits.h>
-using namespace std;
-int N, M, K; //K는 회전연산의 개수
-
-int Map[51][51];
-int originalMap[51][51];
-typedef struct Rotate {
-	int row, col, size;
-	Rotate(){}
-	Rotate(int r, int c, int s) {
-		row = r; col = c; size = s;
-	}
-}Rotate;
-
-vector<Rotate> rotate_info;
-vector<int> rotate_order;
-
-int dir_row[4] = {1,0,-1,0};
-int dir_col[4] = { 0,1,0,-1 };
-
-int result = INT_MAX;
-bool check_edge(int next_row, int next_col, int row, int col, int rotate_size) {
-	if (next_row == row + rotate_size && next_col == col + rotate_size) 
-		return true;
-	else if (next_row == row - rotate_size && next_col == col + rotate_size) 
-		return true;
-	else if (next_row == row - rotate_size && next_col == col - rotate_size) 
-		return true;
-	else if (next_row == row + rotate_size && next_col == col - rotate_size) 
-		return true;
-	return false;
-}
-void rotateArray(Rotate rotate) {
-	for (int s = 1; s <=rotate.size; s++) {
-		int temp = Map[rotate.row - s][rotate.col - s];
-		int d = 0;
-		int cur_row = rotate.row - s;
-		int cur_col = rotate.col - s;
-		int next_row = cur_row + dir_row[d];
-		int next_col = cur_col + dir_col[d];
-		while (1) {
-			if (next_row == rotate.row - s && next_col == rotate.col - s) { //회전 시작지점이 next일때
-				Map[cur_row][cur_col] = temp;
-				break;
-			}
-			Map[cur_row][cur_col] = Map[next_row][next_col];
-			cur_row = next_row;
-			cur_col = next_col;
-			next_row = cur_row + dir_row[d];
-			next_col = cur_col + dir_col[d];
-			if (check_edge(next_row, next_col, rotate.row, rotate.col, s))
-				d = (d + 1) % 4;
-		}
-	}
-	
-}
-void copyMap(int a[][51], int b[][51]) {
-	for (int i = 1; i <=N; i++) {
-		for (int j = 1; j <=M; j++) {
-			a[i][j] = b[i][j];
-		}
-	}
-}
-
-int minSumOfRow() {
-	int min_sum = INT_MAX;
+// get Row Miminum Sum
+int getMinSize() {
+	int tmp = INF;
 	for (int i = 1; i <= N; i++) {
-		int sum = 0;
-		for (int j = 1; j <= M; j++) {
-			sum += Map[i][j];
-		}
-		min_sum = min(min_sum, sum);
+		int count = 0;
+		for (int j = 1; j <= M; j++)
+			count += board[i][j];
+		tmp = min(tmp, count);
 	}
-	return min_sum;
+	return tmp;
 }
 
-void findMinResult() {
-	do {
-		copyMap(Map, originalMap);
-		for (int i = 0; i < rotate_order.size(); i++) {
-			rotateArray(rotate_info[rotate_order[i]]);
-		}
-		result = min(result,minSumOfRow());
-	} while (next_permutation(rotate_order.begin(), rotate_order.end()));
+// if dir is 1,   
+void circleTurn(int r, int c, int s, int dir) {
+	// end state
+	if (s < 1)
+		return;
+	if (dir == 1) {										// step
+		int tmp = board[r - s][c - s];				// 0
+		for (int i = r - s; i < r + s; i++)			// 1
+			board[i][c - s] = board[i + 1][c - s];
+		for (int j = c - s; j < c + s; j++)			// 2
+			board[r + s][j] = board[r + s][j + 1];
+		for (int i = r + s; i > r - s; i--)			// 3
+			board[i][c + s] = board[i - 1][c + s];
+		for (int j = c + s; j > c - s + 1; j--)		// 4
+			board[r - s][j] = board[r - s][j - 1];
+		board[r - s][c - s + 1] = tmp;				// 5
+		circleTurn(r, c, s - 1, dir);
+	}
+	else {											// step
+		int tmp = board[r - s][c - s];				// 0
+		for (int j = c - s; j < c + s; j++)			// 1
+			board[r - s][j] = board[r - s][j + 1];
+		for (int i = r - s; i < r + s; i++)			// 2
+			board[i][c + s] = board[i + 1][c + s];
+		for (int j = c + s; j > c - s; j--)			// 3
+			board[r + s][j] = board[r + s][j - 1];
+		for (int i = r + s; i > r - s + 1; i--)		// 4
+			board[i][c - s] = board[i - 1][c - s];
+		board[r - s + 1][c - s] = tmp;				// 5
+		circleTurn(r, c, s - 1, dir);
+	}
+	return;
 }
-int main() {
-	scanf("%d %d %d", &N, &M, &K);
-	for (int i = 1; i <=N; i++) {
-		for (int j = 1; j <=M; j++) {
-			scanf("%d", &originalMap[i][j]);
-		}
+
+void dfs(int k_count) {
+	if (k_count == 0) {
+		ans = min(ans, getMinSize());
+		return;
 	}
 	for (int i = 0; i < K; i++) {
-		int r, c, s;
-		scanf("%d %d %d", &r,&c,&s);
-		rotate_info.push_back(Rotate(r, c, s));
-		rotate_order.push_back(i);
+		if (!visited[i]) {
+			circleTurn(K_list[i].first.first, K_list[i].first.second, K_list[i].second, 1);
+			visited[i] = true;
+
+			dfs(k_count - 1);
+
+			visited[i] = false;
+			circleTurn(K_list[i].first.first, K_list[i].first.second, K_list[i].second, 0);
+		}
 	}
-	findMinResult();
-	printf("%d\n", result);
 }
 ~~~
 
+## 문제 후 느낀점
+- dfs문제 및 단순 구현문제
