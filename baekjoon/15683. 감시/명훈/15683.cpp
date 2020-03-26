@@ -1,158 +1,114 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <algorithm>
 using namespace std;
 
-#define MAX 20
+#define MAX 8
 
-enum DIR{DIR_UP, DIR_DOWN, DIR_LEFT, DIR_RIGHT};
-int N, ans;
-int board[MAX][MAX];
+// y--, x++, y++, x--
+pair<int, int> dir[4] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+int N, M, ans = MAX * MAX;  // input file, Anwser
+int board[MAX][MAX];        // input array
+int cpyboard[MAX][MAX];     // cpy array
+bool visited[MAX][MAX][4];  // visited dir
+vector<pair<int, int>> camera;  // camera vector
+vector<int> angle;              // check all angle about camera
 
-
-// copy B -> A
-void cpyBoard(int A[][MAX], int B[][MAX]){
+int getBlindSize(){
+    int cnt = 0;
     for(int i=0; i<N; i++)
-        for(int j=0; j<N; j++)
-            A[i][j] = B[i][j];
+        for(int j=0; j<M; j++)
+            if(cpyboard[i][j] == 0)
+                cnt++;
+    return cnt;
 }
 
-// Move
-int Move(int dir, int A[][MAX]){
-    int Max_Value = 0;
-    switch (dir) {
-        case DIR_UP:
-            for(int i=0; i<N; i++){
-                int Value = -1;
-                int Idx = N;
-                for(int j=N-1; j>=0; j--){
-                    if(A[i][j] == 0)    continue;
-                    if(A[i][j] == Value){
-                        A[i][Idx] = A[i][Idx] * 2;
-                        Value = -1;
-                    }
-                    else {
-                        Value = A[i][j];    Idx--;
-                        A[i][Idx] = A[i][j];
-                    }
-                    Max_Value = max(Max_Value, A[i][Idx]);
-                }
-                for(int j=Idx-1; j>= 0; j--) A[i][j] = 0;
-            }
-            break;
-        case DIR_DOWN:
-            for(int i=0; i<N; i++){
-                int Value = -1;
-                int Idx = -1;
-                for(int j=0; j<N; j++){
-                    if(A[i][j] == 0)    continue;
-                    if(A[i][j] == Value){
-                        A[i][Idx] = A[i][Idx] * 2;
-                        Value = -1;
-                    }
-                    else{
-                        Value = A[i][j];    Idx++;
-                        A[i][Idx] = A[i][j];
-                    }
-                    Max_Value = max(Max_Value, A[i][Idx]);
-                }
-                for(int j=Idx+1; j<N; j++) A[i][j] = 0;
-            }
-            break;
-        case DIR_LEFT:
-            for(int j=0; j<N; j++){
-                int Value = -1;
-                int Idx = N;
-                for(int i=N-1; i>= 0; i--){
-                    if(A[i][j] == 0)    continue;
-                    if(A[i][j] == Value){
-                        A[Idx][j] = A[Idx][j] * 2;
-                        Value = -1;
-                    }
-                    else{
-                        Value = A[i][j];    Idx--;
-                        A[Idx][j] = A[i][j];
-                    }
-                    Max_Value = max(Max_Value, A[Idx][j]);
-                }
-                for(int i=Idx-1; i>=0; i--) A[i][j] = 0;
-            }
-            break;
-        case DIR_RIGHT:
-            for(int j=0; j<N; j++){
-                int Value = -1;
-                int Idx = -1;
-                for(int i=0; i<N; i++){
-                    if(A[i][j] == 0)    continue;
-                    if(A[i][j] == Value){
-                        A[Idx][j] = A[Idx][j] * 2;
-                        Value = -1;
-                    }
-                    else {
-                        Value = A[i][j];    Idx++;
-                        A[Idx][j] = A[i][j];
-                    }
-                    Max_Value = max(Max_Value, A[Idx][j]);
-                }
-                for(int i=Idx+1; i<N; i++) A[i][j] = 0;
-            }
-            break;
-    }
-    return Max_Value;
-}
-
-// if A = B return true, else false
-bool isSameMap(int A[][MAX], int B[][MAX]){
+void cpyBoard(){
     for(int i=0; i<N; i++)
-        for(int j=0; j<N; j++)
-            if(A[i][j] != B[i][j])
-                return false;
-    return true;
+        for(int j=0; j<M; j++)
+            cpyboard[i][j] = board[i][j];
 }
 
-// if expected value is more than ans return true, else false
-bool isExpectedValue(int next_max, int next_cnt){
-    int remain_cnt = 10 - next_cnt;
-    int expect_max = next_max * pow(2, remain_cnt);
-    
-    if(ans >= expect_max) return false;
-    return true;
-}
-
-// dfs
-void dfs(int cnt, int State[][MAX], int Max_Value){
-    if(cnt == 10){
-        ans = Max_Value;
+void dfs(int cnt){
+    // end state
+    if(cnt == camera.size()){
+        for(int i=0; i<angle.size(); i++){
+            int y = camera[i].first;
+            int x = camera[i].second;
+            
+            for(int j=0; j<4; j++){
+                if(visited[y][x][j]){
+                    int nextY = y + dir[(angle[i] + j) % 4].first;
+                    int nextX = x + dir[(angle[i] + j) % 4].second;
+                    
+                    while (true) {
+                        if(cpyboard[nextY][nextX] == 6)
+                            break;
+                        if(0 > nextY || nextY >= N || 0 > nextX || nextX >= M)
+                            break;
+                        if(cpyboard[nextY][nextX] == 0)
+                            cpyboard[nextY][nextX] = -1;
+                        
+                        nextY += dir[(angle[i] + j) % 4].first;
+                        nextX += dir[(angle[i] + j) % 4].second;
+                    }
+                }
+            }
+        }
+        ans = min(ans, getBlindSize());
+        cpyBoard();
         return;
     }
+    
+    // recursive, check 4 dir angle in all camera
     for(int i=0; i<4; i++){
-        int nState[MAX][MAX];
-        int nMax_Value;
-        int nCnt = cnt + 1;
-        
-        cpyBoard(nState, State);
-        nMax_Value = Move(i, nState);
-        
-        if(isSameMap(State, nState)) continue;
-        if(isExpectedValue(nMax_Value, nCnt)) dfs(nCnt, nState, nMax_Value);
+        angle.push_back(i);
+        dfs(cnt + 1);
+        angle.pop_back();
     }
 }
 
 int main(int argc, const char * argv[]) {
     // input
-    cin >> N;
-    for(int i=0; i<N; i++)
-        for(int j=0; j<N; j++){
+    cin >> N >> M;
+    for(int i=0; i<N; i++){
+        for(int j=0; j<M; j++){
             scanf("%d", &board[i][j]);
-            if(board[i][j] > ans)
-                ans = board[i][j];
+            if(board[i][j] > 0 && board[i][j] < 6)
+                camera.push_back({i, j});
+            switch (board[i][j]) {
+                case 1:
+                    visited[i][j][0] = true;
+                    break;
+                case 2:
+                    visited[i][j][0] = true;
+                    visited[i][j][2] = true;
+                    break;
+                case 3:
+                    visited[i][j][0] = true;
+                    visited[i][j][1] = true;
+                    break;
+                case 4:
+                    visited[i][j][0] = true;
+                    visited[i][j][1] = true;
+                    visited[i][j][2] = true;
+                    break;
+                case 5:
+                    visited[i][j][0] = true;
+                    visited[i][j][1] = true;
+                    visited[i][j][2] = true;
+                    visited[i][j][3] = true;
+                    break;
+            }
         }
+    }
     
     // solution
-    dfs(0, board, ans);
+    cpyBoard();
+    dfs(0);
     
     // output
     cout << ans << "\n";
+    
     return 0;
 }
