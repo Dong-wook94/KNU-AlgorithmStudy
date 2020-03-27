@@ -1,129 +1,77 @@
-# 다리만들기2
+# 감시
 
 ## 문제 알고리즘
-- bfs, MST
+- dfs
 
 ## 풀이방법
-1. bfs를 통해 각 섬에 번호를 붙인다
-2. 완전 탐색을 통해 다리를 만든다.
-3. kruskal algorithm을 통한 MST를 만든다.
-4. 모두 연결된 경우에 한해서 출력하고 그 외에는 -1을 출력한다.
+1. dfs를 통한 완전탐색
+2. 카메라를 다 체크한 경우, 카메라가 보는 위치를 -1로 다 바꾸고 처리한다.
 
 - 핵심 코드
 ~~~c++
-void bfs(int y, int x, int label) {
-    queue<pair<int, int>> q;
-    q.push({ y, x });
-    board[y][x] = label;
-    visited[y][x] = true;
+pair<int, int> dir[4] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+int N, M, ans = MAX * MAX;  // input file, Anwser
+int board[MAX][MAX];        // input array
+int cpyboard[MAX][MAX];     // cpy array
+bool visited[MAX][MAX][4];  // visited dir
+vector<pair<int, int>> camera;  // camera vector
+vector<int> angle;              // check all angle about camera
 
-    while (!q.empty()) {
-        int curY = q.front().first;
-        int curX = q.front().second;
-        q.pop();
-        for (int d = 0; d < 4; d++) {
-            int nextY = curY + dir[d].first;
-            int nextX = curX + dir[d].second;
-            if (0 <= nextY && nextY < N && 0 <= nextX && nextX < M) {
-                if (!visited[nextY][nextX] && board[nextY][nextX]) {
-                    q.push({ nextY, nextX });
-                    board[nextY][nextX] = label;
-                    visited[nextY][nextX] = true;
-                }
-            }
-        }
-    }
-}
-
-void make_bridge(int y, int x) {
-    int graph_id = board[y][x];
-    for (int d = 0; d < 4; d++) {
-        int cnt = 0;
-        while (true) {
-            int nextY = y + dir[d].first * (cnt + 1);
-            int nextX = x + dir[d].second * (cnt + 1);
-
-            if (0 > nextY || nextY >= N || 0 > nextX || nextX >= M)
-                break;
-            else if (board[nextY][nextX] == graph_id)
-                break;
-            else if (board[nextY][nextX] == 0) {
+int getBlindSize(){
+    int cnt = 0;
+    for(int i=0; i<N; i++)
+        for(int j=0; j<M; j++)
+            if(cpyboard[i][j] == 0)
                 cnt++;
-                continue;
-            }
-            else {
-                if (cnt >= 2) {
-                    int graph_id2 = board[nextY][nextX];
-                    if (k_board[graph_id][graph_id2]) {
-                        k_board[graph_id][graph_id2] = min(cnt, k_board[graph_id][graph_id2]);
-                        k_board[graph_id2][graph_id] = min(cnt, k_board[graph_id][graph_id2]);
-                    }
-                    else {
-                        k_board[graph_id][graph_id2] = cnt;
-                        k_board[graph_id2][graph_id] = cnt;
+    return cnt;
+}
+
+void cpyBoard(){
+    for(int i=0; i<N; i++)
+        for(int j=0; j<M; j++)
+            cpyboard[i][j] = board[i][j];
+}
+
+void dfs(int cnt){
+    // end state
+    if(cnt == camera.size()){
+        for(int i=0; i<angle.size(); i++){
+            int y = camera[i].first;
+            int x = camera[i].second;
+            
+            for(int j=0; j<4; j++){
+                if(visited[y][x][j]){
+                    int nextY = y + dir[(angle[i] + j) % 4].first;
+                    int nextX = x + dir[(angle[i] + j) % 4].second;
+                    
+                    while (true) {
+                        if(cpyboard[nextY][nextX] == 6)
+                            break;
+                        if(0 > nextY || nextY >= N || 0 > nextX || nextX >= M)
+                            break;
+                        if(cpyboard[nextY][nextX] == 0)
+                            cpyboard[nextY][nextX] = -1;
+                        
+                        nextY += dir[(angle[i] + j) % 4].first;
+                        nextX += dir[(angle[i] + j) % 4].second;
                     }
                 }
-                break;
             }
         }
+        ans = min(ans, getBlindSize());
+        cpyBoard();
+        return;
     }
-}
-
-int collapsingFind(int n) {
-    int root;
-    for (root = n; parent[root] >= 1; root = parent[root]);
-    for (int i = n; i != root; i = parent[i])
-        parent[i] = root;
-    return root;
-}
-
-void weightedUnion(int i, int j) {
-    int temp = parent[i] + parent[j];
-    if (parent[i] > parent[j]) {
-        parent[i] = j;
-        parent[j] = temp;
+    
+    // recursive, check 4 dir angle in all camera
+    for(int i=0; i<4; i++){
+        angle.push_back(i);
+        dfs(cnt + 1);
+        angle.pop_back();
     }
-    else {
-        parent[j] = i;
-        parent[i] = temp;
-    }
-}
-
-void kruskal() {
-    for (int i = 1; i <= label; i++)
-        for (int j = i; j <= label; j++)
-            if (k_board[i][j])
-                graph.push_back(make_pair(k_board[i][j], make_pair(i, j)));
-    sort(graph.begin(), graph.end());
-    for (int i = 1; i <= label; i++)
-        parent[i] = -1;
-    for (int i = 0; i < graph.size(); i++) {
-        int p = collapsingFind(graph[i].second.first);
-        int q = collapsingFind(graph[i].second.second);
-        if (p != q) {
-            weightedUnion(p, q);
-            answer += graph[i].first;
-        }
-    }
-}
-
-bool isAllConnected() {
-    bool flag = false;
-    for (int i = 1; i <= label; i++) {
-        if (parent[i] == -1)
-            return false;
-        if (parent[i] < -1) {
-            if (flag)   // 제일 큰 부모는 하나만 있어야한다.
-                return false;
-            flag = true;
-        }
-    }
-    return true;
 }
 ~~~
 
 ## 문제 후 느낀점
-- 쉬운 문제였으나, 잘못된 부분을 빠르게 잡아내지 못해서 고민이였던 문제.
-- 동욱이형의 collapsingFind와 weightedUnion이 맘에 들어서 사용했다.
-- 이 문제 덕분에 백준 성공률이 박살이 났다... 
-
+- 최초 문제를 풀 때, dfs로 문제를 풀었는데 시간초과가 발생했다.
+- 다른사람을 통해 문제점을 확인해보니 전체 카메라가 됬는 경우에만 처리를 하는 것을 확인했다.
