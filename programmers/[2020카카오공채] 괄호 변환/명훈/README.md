@@ -1,85 +1,86 @@
-# [2020카카오공채] 문자열 압축
+# [2020카카오공채] 괄호 변환
 
-## 풀이
+## 문제 알고리즘
+- 문제구현
 
-문제에서 요구한 조건대로 재귀 코드를 작성하면된다. 
+## 풀이방법
+- 문제에서 시키는대로 재귀함수 작성
 
-## 소스코드
-
+- 핵심 코드
 ~~~c++
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
+#include	<iostream>
+#include	<string>
 using namespace std;
 
-
-string divide_str(string str) {
-	int cntl=0, cntr=0;
-	for (int i = 0; i < str.length(); i++) {
-		if (str[i] == '(')
-			cntl++;
-		else if (str[i] == ')')
-			cntr++;
-		if (cntr == cntl)
-			break;
-	}
-	return str.substr(0, cntl + cntr);
-}
-bool check(string str){
-	int cntl=0,cntr=0;
-	for (int i = 0; i < str.length(); i++) {
-		if (str[i] == '(')
-			cntl++;
-		else if (str[i] == ')')
-			cntr++;
-		if (cntr > cntl)
+// check 's' is balanced string
+bool isCorrectBalanced(string s) {
+	int lc = 0, rc = 0;
+	for (int i = 0; i < s.length(); i++) {
+		if (s[i] == '(')	// (
+			lc++;
+		else				// )
+			rc++;
+		if (lc < rc)		// not balanced
 			return false;
 	}
 	return true;
 }
 
-string uv_routine(string str) {
-	string u, v;
-	u = divide_str(str);
-	v = str.substr(u.length());
-	if (str == "")
-		return "";
-	if (check(u)) {
-		u +=uv_routine(v);
-		//result += u;
-		return u;
+// get balanced substr 
+string getSubString(string s) {
+	int lc = 0, rc = 0;
+	for (int i = 0; i < s.length(); i++) {
+		if (s[i] == '(')	// (
+			lc++;
+		else				// )
+			rc++;
+		if (lc == rc)		// if balanced
+			break;
 	}
-	else {
-		string result = "";
-		result += "(";
-		result += uv_routine(v);
-		result += ")";
-		u = u.substr(1, u.length() - 2);
-		//reverse(u.begin(), u.end());
-		for (auto iter = u.begin(); iter != u.end(); iter++) {
-			if (*iter == '(') {
-				*iter = ')';
-			}
-			else
-				*iter = '(';
-		}
-		result += u;
-		return result;
-	}
-	
-	
+	return s.substr(0, lc + rc);
 }
+
+// make correct & balanced String
+string balancedString(string s) {
+	string u = getSubString(s);
+	string v = s.substr(u.length());
+	if (s == "")
+		return "";
+	if (isCorrectBalanced(u))
+		return (u + balancedString(v));
+	else {
+		string res = "";
+		res += '(';
+		res += balancedString(v);
+		res += ')';
+		string tu = u.substr(1, u.length() - 2);
+		for (int i = 0; i < tu.length(); i++) {
+			if (tu[i] == '(')
+				tu[i] = ')';
+			else
+				tu[i] = '(';
+		}
+		res += tu;
+		return res;
+	}
+}
+
 string solution(string p) {
-	string answer = "";
-	string u, v;
-	if (p.length() == 0)
-		return answer;
-	u = uv_routine(p);
+	if (p == "")
+		return "";
+	return balancedString(p);
+}
 
+int main() {
+	cout << solution("(()())()") << "\n";
+	cout << solution(")(") << "\n";
+	cout << solution("()))((()") << "\n";
 
-	return u;
+	return 0;
 }
 ~~~
+
+## 문제 후 느낀점
+- 시키는대로 짤 수 있는 사람이 되자...
+
 
