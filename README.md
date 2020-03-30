@@ -35,5 +35,5 @@
 | 10주차 | [기둥과 보 설치](https://programmers.co.kr/learn/courses/30/lessons/60061) | [퍼즐](https://www.acmicpc.net/problem/1525) | [배열  돌리기 4](https://www.acmicpc.net/problem/17406) |
 | 11주차 | [블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063) | [색종이 붙이기](https://www.acmicpc.net/problem/17136) | [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057) |
 | 12주차 | [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058) | [2048](https://www.acmicpc.net/problem/12094)  | [감시](https://www.acmicpc.net/problem/15683) |
-| 13주차 | [괄호 추가하기2](https://www.acmicpc.net/problem/16638)| |
+| 13주차 | [괄호 추가하기2](https://www.acmicpc.net/problem/16638)| [블록게임](https://programmers.co.kr/learn/courses/30/lessons/42894) ||
 
