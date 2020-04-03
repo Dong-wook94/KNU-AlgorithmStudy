@@ -1,69 +1,69 @@
 #include <string>
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
-typedef struct Block {
-	int row_pos;
-	int col_pos;
-	int row_size;
-	int col_size;
-	bool isErased;
-	Block(int r, int c, int rs, int cs) {
-		row_pos = r; col_pos = c; row_size = rs; col_size = cs;
-		isErased = false;
-	}
-}Block;
+int N;
+vector<vector<int>> Board;
 
-vector<Block> blocks;
-
-bool canFill(vector<vector<int>> board,int row, int col) {
+bool canFill(int row, int col) {
 	for (int i = 0; i < row; i++) {
-		if (board[i][col] != 0)
+		if (Board[i][col] != 0)
 			return false;
 	}
 	return true;
 }
 
-bool find(vector<vector<int>> board,int row, int col, int h, int w) {
+bool find(int row, int col, int h, int w) {
 	int empty_cnt = 0;
-	int block_num = -1; //같은 번호 블록 확인하기 위함.
+	int block_num = -1;
 	for (int r = row; r < row + h; r++) {
 		for (int c = col; c < col + w; c++) {
-			if (board[r][c] == 0)
+			if (Board[r][c] == 0) {
+				if (!canFill(r, c))
+					return false;
 				empty_cnt++;
+				if (empty_cnt > 2)
+					return false;
+			}
 			else {
-				if (block_num == -1) {
-					block_num = board[r][c];
-				}
-				else if(block_num != board[r][c]) {//구역안에 서로다른 블록존재
+				if (block_num != -1 && block_num != Board[r][c]) {//서로다른블록으로 엮인경우
 					return false;
 				}
+				block_num = Board[r][c];//업데이트
 			}
-			if (empty_cnt > 2)
-				return false;
+		}
+	}
+	for (int r = row; r < row + h; r++) {
+		for (int c = col; c < col + w; c++) {
+			Board[r][c] = 0;
 		}
 	}
 	return true;
 }
 
-void searchAndRegisterBlockPos(vector<vector<int>> board,int n) {
-	for (int i = 0; i < n; i++){
-		for (int j = 0; j < n; j++) {
-			if (i <= n - 2 && j <= n - 3&&find(board,i,j,2,3)) {
-				blocks.push_back(Block(i, j, 2, 3));
-			}
-			else if (i <= n - 3 && j <= n - 2 && find(board,i, j, 3, 2)) {
-				blocks.push_back(Block(i, j, 3, 2));
-			}
-		}
-	}
-}
 int solution(vector<vector<int>> board) {
 	int answer = 0;
-	searchAndRegisterBlockPos(board, board.size());
+	Board = board;
+	N = board.size();
+	int cnt;
 
-	cout << blocks.size() << endl;
+	do {
+		cnt = 0;
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if (i <= N - 2 && j <= N - 3 && find(i, j, 2, 3)) {
+					cnt++;
+				}
+				else if (i <= N - 3 && j <= N - 2 && find(i, j, 3, 2)) {
+					cnt++;
+				}
+			}
+		}
+		answer += cnt;
+	} while (cnt);
+
 	return answer;
 }
 
