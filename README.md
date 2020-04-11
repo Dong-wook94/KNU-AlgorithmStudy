@@ -23,10 +23,10 @@
 
 |       | 1          | 2        | 3        |
 | :---: | ---------- | -------- | ------- |
-| 1주차 | DFS와 BFS  | 아기상어 | 치킨배달 |
-| 2주차 | 원판돌리기 | 퇴사     |  스타트와링크 |
-| 3주차 | 게리맨더링2 | 미세먼지 안녕! | 캐슬디펜스 |
-| 4주차 |  | 나무재테크 |   |
+| 1주차 | [DFS와 BFS](https://www.acmicpc.net/problem/1260)  | [아기상어](https://www.acmicpc.net/problem/16236) | [치킨배달](https://www.acmicpc.net/problem/15686)|
+| 2주차 | [원판돌리기](https://www.acmicpc.net/problem/17822) | [퇴사](https://www.acmicpc.net/problem/14501) |  [스타트와링크](https://www.acmicpc.net/problem/14889) |
+| 3주차 | [게리맨더링2](https://www.acmicpc.net/problem/17779) | [미세먼지 안녕!](https://www.acmicpc.net/problem/17144) | [캐슬디펜스](https://www.acmicpc.net/problem/17135) |
+| 4주차 |  | [나무재테크](https://www.acmicpc.net/problem/16235) |   |
 | 5주차 | [인구이동](https://www.acmicpc.net/problem/16234) | [테트로미노](https://www.acmicpc.net/problem/14500) | [스팟마트](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW5jNL968dwDFATQ&categoryId=AW5jNL968dwDFATQ&categoryType=CODE) |
 | 6주차 | [타일링](https://www.acmicpc.net/problem/1793) | [상원이의 생일파티](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWWO3kT6F2oDFAV4&categoryId=AWWO3kT6F2oDFAV4&categoryType=CODE) | [낚시왕](https://www.acmicpc.net/problem/17143) |
 | 7주차 | [연구소3](https://www.acmicpc.net/problem/17142) | [경사로](https://www.acmicpc.net/problem/14890) | [모든것이1이된다](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWxpXbya0eIDFAWL&categoryId=AWxpXbya0eIDFAWL&categoryType=CODE) |
