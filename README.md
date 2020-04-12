@@ -37,4 +37,5 @@
 | 12주차 | [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058) | [2048](https://www.acmicpc.net/problem/12094)  | [감시](https://www.acmicpc.net/problem/15683) |
 | 13주차 | [괄호 추가하기2](https://www.acmicpc.net/problem/16638)| [블록게임](https://programmers.co.kr/learn/courses/30/lessons/42894) |[브라이언의 고민](https://programmers.co.kr/learn/courses/30/lessons/1830) |
 | 14주차 | [매칭 점수](https://programmers.co.kr/learn/courses/30/lessons/42893) | [로봇청소기](https://www.acmicpc.net/problem/14503) |[방금그곡](https://programmers.co.kr/learn/courses/30/lessons/17683) |
+| 15주차 | [길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892) |  | |
 
