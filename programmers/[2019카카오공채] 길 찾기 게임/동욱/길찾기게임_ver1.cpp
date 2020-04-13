@@ -4,19 +4,18 @@
 #include <iostream>
 
 using namespace std;
-typedef struct node *treePointer;
-typedef struct node {
+class Node {
 	int data;
 	int num;
-	treePointer leftChild, rightChild;
-}node;
-treePointer root;
+	Node* leftChild, rightChild;
+};
+Node* root;
 bool cmp(vector<int> a, vector<int> b) {
 	return a[1] > b[1];
 }
 vector<int> prevector;
 vector<int> postvector;
-void preorder(treePointer ptr) {
+void preorder(Node* ptr) {
 	if (ptr) {
 		//printf("%d ", ptr->data);
 		prevector.push_back(ptr->num);
@@ -24,7 +23,7 @@ void preorder(treePointer ptr) {
 		preorder(ptr->rightChild);
 	}
 }
-void postorder(treePointer ptr) {
+void postorder(Node* ptr) {
 	if (ptr) {
 		postorder(ptr->leftChild);
 		postorder(ptr->rightChild);
@@ -33,7 +32,7 @@ void postorder(treePointer ptr) {
 }
 vector<vector<int>> solution(vector<vector<int>> nodeinfo) {
 	vector<vector<int>> answer;
-	treePointer temp;
+	Node* temp;
 	root = (node*)malloc(sizeof(node));
 	for (int i = 0; i < nodeinfo.size(); i++) {
 		nodeinfo[i].push_back(i+1);
@@ -51,7 +50,7 @@ vector<vector<int>> solution(vector<vector<int>> nodeinfo) {
 		temp->num = nodeinfo[i][2];
 		temp->rightChild = NULL;
 		temp->leftChild = NULL;
-		for (treePointer cur = root; ;) {
+		for (Node* cur = root; ;) {
 			if (temp->data < cur->data) {
 				if (cur->leftChild) {
 					cur = cur->leftChild;
