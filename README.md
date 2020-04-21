@@ -38,5 +38,5 @@
 | 13주차 | [괄호 추가하기2](https://www.acmicpc.net/problem/16638)| [블록게임](https://programmers.co.kr/learn/courses/30/lessons/42894) |[브라이언의 고민](https://programmers.co.kr/learn/courses/30/lessons/1830) |
 | 14주차 | [매칭 점수](https://programmers.co.kr/learn/courses/30/lessons/42893) | [로봇청소기](https://www.acmicpc.net/problem/14503) |[방금그곡](https://programmers.co.kr/learn/courses/30/lessons/17683) |
 | 15주차 | [길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892) | [환승](https://www.acmicpc.net/problem/5214) | [드래곤커브](https://www.acmicpc.net/problem/15685) |
-| 16주차 | [자동 완성](https://programmers.co.kr/learn/courses/30/lessons/17685) |  |  |
+| 16주차 | [자동 완성](https://programmers.co.kr/learn/courses/30/lessons/17685) | [톱니바퀴](https://www.acmicpc.net/problem/14891) |  |
 
