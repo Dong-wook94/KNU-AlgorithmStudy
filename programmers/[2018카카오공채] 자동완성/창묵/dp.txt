@@ -1,0 +1,66 @@
+
+public class Main{
+
+
+  static int[] Dp;
+  public static void main(String argv[]){
+    String[] words={"world","am","wordf","map","word"};
+    System.out.println(solution(words));
+
+  }
+
+  public static int solution(String words[]){
+
+    int result;
+    Dp=new int[words.length];
+    result=scanWord(words);
+
+    return result;
+  }
+
+  public static int scanWord(String words[]){
+    String cur;
+    String scan;
+
+    int start=0;
+    int result=0;
+    boolean findflag = false;
+
+    while(start<words.length){
+
+      cur=words[start]; //  단어 선택
+      findflag=false;
+
+      for(int scanIndex=start+1;scanIndex<Dp.length;scanIndex++){
+        scan=words[scanIndex];
+
+        if(Dp[scanIndex]>=words[scanIndex].length())
+          continue;
+
+        if(Dp[start]==Dp[scanIndex] && cur.charAt(Dp[start])==scan.charAt(Dp[start])){
+            Dp[scanIndex]++;
+            findflag = true;
+        }
+      }
+
+      Dp[start]++;
+
+      if(Dp[start]>=words[start].length()) { // dp 안에 저장되어있는 값과 word의 길이가 같으면 다음 start 타겟으로 넘어감
+        result+=words[start].length();
+        start++;
+        continue;
+      }
+
+      if(!findflag){ // 아무단어와도 중복되지 않으니깐 다음단어로 넘기고 count ++;
+        result+=Dp[start];
+        start++;
+        continue;
+      }
+
+    }
+
+    return result;
+
+  }
+
+}
