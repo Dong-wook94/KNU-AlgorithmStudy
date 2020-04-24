@@ -9,12 +9,12 @@
 
 1. 문제에서 규칙을 찾고 그대로 체크해주면 된다.
 
-* 풀이 사진
-  * ![image](https://user-images.githubusercontent.com/42582516/79570533-9184da80-80f4-11ea-95e9-1815199e18a9.png)
+- 풀이 사진
+  - [![image](https://user-images.githubusercontent.com/42582516/79570533-9184da80-80f4-11ea-95e9-1815199e18a9.png)](https://user-images.githubusercontent.com/42582516/79570533-9184da80-80f4-11ea-95e9-1815199e18a9.png)
 
 - 핵심 코드
 
-~~~c++
+```
 #include	<iostream>
 #include	<vector>
 using namespace std;
@@ -69,7 +69,7 @@ int main() {
 	cout << getDragonCurve() << "\n";
 	return 0;
 }
-~~~
+```
 
 ## 문제 후 느낀점
 
