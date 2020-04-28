@@ -39,5 +39,5 @@
 | 14주차 | [매칭 점수](https://programmers.co.kr/learn/courses/30/lessons/42893) | [로봇청소기](https://www.acmicpc.net/problem/14503) |[방금그곡](https://programmers.co.kr/learn/courses/30/lessons/17683) |
 | 15주차 | [길 찾기 게임](https://programmers.co.kr/learn/courses/30/lessons/42892) | [환승](https://www.acmicpc.net/problem/5214) | [드래곤커브](https://www.acmicpc.net/problem/15685) |
 | 16주차 | [자동 완성](https://programmers.co.kr/learn/courses/30/lessons/17685) | [톱니바퀴](https://www.acmicpc.net/problem/14891) | [뱀](https://www.acmicpc.net/problem/3190) |
-| 17주차 |[빙산](https://www.acmicpc.net/problem/2573)  | [외벽점검](https://programmers.co.kr/learn/courses/30/lessons/60062) |  |
+| 17주차 |[빙산](https://www.acmicpc.net/problem/2573)  | [외벽점검](https://programmers.co.kr/learn/courses/30/lessons/60062) | [연산자끼워넣기](https://www.acmicpc.net/problem/14888) |
 
