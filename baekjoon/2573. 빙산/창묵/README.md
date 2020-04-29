@@ -18,9 +18,6 @@
 단순 탐색문제였다.
 
 
-문제 링크 : https://www.acmicpc.net/problem/2573
-
-문제 풀이 링크 : https://dong-co.tistory.com/58
 
 
 
