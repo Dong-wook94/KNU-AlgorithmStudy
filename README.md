@@ -41,4 +41,5 @@
 | 16주차 | [자동 완성](https://programmers.co.kr/learn/courses/30/lessons/17685) | [톱니바퀴](https://www.acmicpc.net/problem/14891) | [뱀](https://www.acmicpc.net/problem/3190) |
 | 17주차 |[빙산](https://www.acmicpc.net/problem/2573)  | [외벽점검](https://programmers.co.kr/learn/courses/30/lessons/60062) | [연산자끼워넣기](https://www.acmicpc.net/problem/14888) |
 | 18주차 |[셔틀버스](https://programmers.co.kr/learn/courses/30/lessons/17678) | [주사위굴리기](https://www.acmicpc.net/problem/14499) | [스도쿠](https://www.acmicpc.net/problem/2580) |
+| 19주차 |[⚾](https://www.acmicpc.net/problem/17281) |  |  |
 
