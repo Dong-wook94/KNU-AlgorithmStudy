@@ -1,4 +1,4 @@
-# 1793 타일링
+# 2352 반도체 설계
 
 ![image](https://user-images.githubusercontent.com/42582516/81906764-b55b1380-9601-11ea-8461-0d41bd86aeee.png)
 
