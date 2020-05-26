@@ -19,6 +19,9 @@
 
 - [git 사용법 정리](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/Reference/Git%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95)
 
+
+### Week Study
+
 |        | 1                                                            | 2                                                            | 3                                                            |
 | :----: | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1주차  | [DFS와 BFS](https://www.acmicpc.net/problem/1260)            | [아기상어](https://www.acmicpc.net/problem/16236)            | [치킨배달](https://www.acmicpc.net/problem/15686)            |
@@ -42,4 +45,7 @@
 | 19주차 | [⚾](https://www.acmicpc.net/problem/17281)                   | [무지의 먹방 라이브](https://programmers.co.kr/learn/courses/30/lessons/42891) | [반도체 설계](https://www.acmicpc.net/problem/2352)          |
 | 20주차 | [음악 프로그램](https://www.acmicpc.net/problem/2623)        | [가스관](https://www.acmicpc.net/problem/2931)               | [파이프옮기기1](https://www.acmicpc.net/problem/17070)       |
 | 21주차 | [게리멘더링](https://www.acmicpc.net/problem/17471)          |                                                              |                                                              |
+
+### Additional Study
+
 
