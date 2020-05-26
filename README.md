@@ -13,14 +13,24 @@
 ## :fire:알고리즘 스터디:fire: 진행방식
 
 - 매주 3문제씩 풀이하고 리뷰
-
 - 매주 한명당 1문제씩 문제 선정 후 업로드
 - 주마다 풀이 코드및 문제 풀이 설명을 업로드
-
 - [git 사용법 정리](https://github.com/Dong-wook94/KNU-AlgorithmStudy/tree/master/Reference/Git%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95)
 
 
-### Week Study
+
+### :rainbow: Contributors
+
+* [Dong-wook94](https://github.com/Dong-wook94)
+
+* [Azderica](https://github.com/Azderica)
+* [kcm0147](https://github.com/kcm0147)
+* [jhye125](https://github.com/jhye125) 
+* [Kimjino1996](https://github.com/Kimjino1996)
+
+
+
+### :rainbow: Week Study
 
 |        | 1                                                            | 2                                                            | 3                                                            |
 | :----: | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -46,6 +56,28 @@
 | 20주차 | [음악 프로그램](https://www.acmicpc.net/problem/2623)        | [가스관](https://www.acmicpc.net/problem/2931)               | [파이프옮기기1](https://www.acmicpc.net/problem/17070)       |
 | 21주차 | [게리멘더링](https://www.acmicpc.net/problem/17471)          |                                                              |                                                              |
 
-### Additional Study
+### :rainbow: Additional Study
+
+#### :cloud: Baekjoon
+
+| [불켜기](https://www.acmicpc.net/problem/11967) |      |      |      |
+| ----------------------------------------------- | ---- | ---- | ---- |
+|                                                 |      |      |      |
+
+
+
+#### :cloud: Programmers
+
+|      |      |      |      |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+
+
+#### :cloud: SW Expert Academy
+
+|      |      |      |      |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
 
 
