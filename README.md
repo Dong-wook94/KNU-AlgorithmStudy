@@ -21,8 +21,8 @@
 
 ### :rainbow: Contributors
 | [Dong-wook94](https://github.com/Dong-wook94) | [Azderica](https://github.com/Azderica) | [kcm0147](https://github.com/kcm0147) |
-|---------------------|---------------------|---------------------|
-| [jhye125](https://github.com/jhye125)         | [Kimjino1996](https://github.com/Kimjino1996) | [jy-977](https://github.com/jy-977)   |
+|:-------------------:|:-------------------:|:-------------------:|
+|   **[jhye125](https://github.com/jhye125)**   | **[Kimjino1996](https://github.com/Kimjino1996)** | **[jy-977](https://github.com/jy-977)** |
 
 
 ### :rainbow: Week Study
