@@ -50,7 +50,8 @@
 | 18주차 | [셔틀버스](https://programmers.co.kr/learn/courses/30/lessons/17678) | [주사위굴리기](https://www.acmicpc.net/problem/14499)        | [스도쿠](https://www.acmicpc.net/problem/2580)               |
 | 19주차 | [⚾](https://www.acmicpc.net/problem/17281)                   | [무지의 먹방 라이브](https://programmers.co.kr/learn/courses/30/lessons/42891) | [반도체 설계](https://www.acmicpc.net/problem/2352)          |
 | 20주차 | [음악 프로그램](https://www.acmicpc.net/problem/2623)        | [가스관](https://www.acmicpc.net/problem/2931)               | [파이프옮기기1](https://www.acmicpc.net/problem/17070)       |
-| 21주차 | [게리멘더링](https://www.acmicpc.net/problem/17471)          |  [알파벳](https://www.acmicpc.net/problem/1987)       |    [소형기관차](https://www.acmicpc.net/problem/2616)    |
+| 21주차 | [게리멘더링](https://www.acmicpc.net/problem/17471)          | [알파벳](https://www.acmicpc.net/problem/1987)               | [소형기관차](https://www.acmicpc.net/problem/2616)           |
+| 22주차 | [방문 길이](https://programmers.co.kr/learn/courses/30/lessons/49994) |                                                              |                                                              |
 
 ### :rainbow: Additional Study
 
