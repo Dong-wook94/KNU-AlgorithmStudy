@@ -18,11 +18,16 @@ direction = {'U':[0,1],
 """
 
 def visited_path_check(cur, nxt) :
-    print("hi")
-    if [cur,nxt] in visited or [nxt,cur] in visited :
+    global visited
+    if ([cur,nxt] in visited) or ([nxt,cur] in visited) : #간적있는길
+        print('have passed')
         return 0
-    else :
+    else : #간적 없는길
+        print("visited")
+        print(cur, nxt)
         visited.append([cur, nxt])
+        visited.append([nxt, cur])
+        print(visited)
         return 1
 
 def range_validate(cur) :
@@ -34,26 +39,27 @@ def range_validate(cur) :
 
 def solution(dirs) :
     distance = 0
-    global cur,nxt
+    global cur,nxt,visited
     for _ in dirs :
 
         nxt[0] = cur[0]+ direction.get(_)[0]
         nxt[1] = cur[1]+ direction.get(_)[1]
+        print("next : ",nxt[0], nxt[1])
+        print("visited ", visited)
 
+        print("solution")
+        print(cur , nxt)
         # 좌표옮길수 있는지 체크
         if range_validate(nxt) == 0 :
             continue
         # 갔던길 체크
         if visited_path_check(cur, nxt) == 1 :
-            print("in")
-            visited.append([cur,nxt])
             distance += 1
+            print(distance)
         cur = nxt.copy()
-        print(_,"   pos : ",cur,"    dis : ",distance)
     return distance
 
 
 
 dirs = input()
-print(dirs)
-solution(dirs)
+print(solution(dirs))
