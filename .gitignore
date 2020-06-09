@@ -2,3 +2,5 @@
 *.DS_Store
 *.vscode
 *.json
+*.xml
+*.iml
