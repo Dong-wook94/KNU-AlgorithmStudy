@@ -53,7 +53,7 @@
 | 21주차 | [게리멘더링](https://www.acmicpc.net/problem/17471)          | [알파벳](https://www.acmicpc.net/problem/1987)               | [소형기관차](https://www.acmicpc.net/problem/2616)           |
 | 22주차 | [방문 길이](https://programmers.co.kr/learn/courses/30/lessons/49994) | [디스크 트리](https://www.acmicpc.net/problem/7432)          | [통나무옮기기](https://www.acmicpc.net/problem/1938)         |
 | 23주차 | [외벽 점검](https://programmers.co.kr/learn/courses/30/lessons/60062) | [앱](https://www.acmicpc.net/problem/7579)                   | [내리막길](https://www.acmicpc.net/problem/1520)             |
-                    
+
 
 ### :rainbow: Additional Study
 
@@ -67,9 +67,9 @@
 
 #### :cloud: Programmers
 
-| [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993) |      |      |      |
-| ------------------------------------------------------------ | ---- | ---- | ---- |
-|                                                              |      |      |      |
+| [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993) | [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256?language=java) |      |      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ---- | ---- |
+|                                                              |                                                              |      |      |
 
 
 
