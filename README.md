@@ -57,7 +57,9 @@
 | 10/4 | 조합          | [백준 1759 - 암호만들기](https://www.acmicpc.net/problem/1759) |
 | 10/5 | DFS           | [SWEA 1949 - 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&categoryId=AV5PoOKKAPIDFAUq&categoryType=CODE) |
 | 10/5 | DFS           | [SWEA 1952 - 수영장](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpFQaAQMDFAUq&categoryId=AV5PpFQaAQMDFAUq&categoryType=CODE) |
-| 10/5 | 플로이드 와샬 | 백준 10159 - 저울                               |
+| 10/5 | 플로이드 와샬 | [백준 10159 - 저울](https://www.acmicpc.net/problem/10159)   |
+| 10/6 | 기타          | [백준 7662 - 이중 우선순위](https://www.acmicpc.net/problem/7662) |
+| 10/6 | 기타          | [프로그래머스 62048 - 멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048) |
 
 
 
