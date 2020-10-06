@@ -28,35 +28,35 @@
 
 ### :rainbow: Week Study (2020-하반기)
 
-| 날짜 | 문제유형      | 문제                                            |
-| ---- | ------------- | ----------------------------------------------- |
-| 9/21 | 다익스트라    | 백준 1916 - 최소비용 구하기                     |
-| 9/21 | BFS           | 백준 2206 - 벽 부수고 이동하기                  |
-| 9/21 | 위상정렬      | 백준 1516 - 게임 개발                           |
-| 9/22 | 그리디        | 백준 2437 - 저울                                |
-| 9/22 | 플로이드 와샬 | 백준 11404 - 플로이드                           |
-| 9/22 | 문자열        | 프로그래머스 17684 - 2018 카카오 3차 압축       |
-| 9/23 | 문자열        | 프로그래머스 17676 - 2018 카카오 1차 추석트래픽 |
-| 9/23 | 이분탐색      | 백준 1939 - 중량제한                            |
-| 9/23 | 위상정렬      | 백준 1766 - 문제집                              |
-| 9/23 | 비트마스크    | 백준 18119 - 단어암기                           |
-| 9/24 | 그리디        | 프로그래머스 42885 - 구명보트                   |
-| 9/24 | 기타          | 프로그래머스 42579 - 베스트앨범                 |
-| 9/25 | 이분탐색      | 프로그래머스 43238 - 입국심사                   |
-| 9/25 | 이분탐색      | 프로그래머스 43236 - 징검다리                   |
-| 9/25 | 기타          | 프로그래머스 425784 - 주식가격                  |
-| 9/25 | 위상정렬      | 백준 2056 - 작업                                |
-| 9/25 | 투포인터      | 백준 1644 - 소수의 연속합                       |
-| 9/28 | 브루트포스    | 백준 1182 - 부분수열의 합                       |
-| 9/28 | DFS           | 백준 1967 - 트리의 지름                         |
-| 9/28 | 플로이드 와샬 | 백준 2458 - 키 순서                             |
-| 9/28 | 백트래킹      | 백준 1062 - 가르침                              |
-| 10/3 | 다익스트라    | 백준 1261 - 알고스팟                            |
-| 10/3 | BFS           | 백준 11725 - 트리의 부모 찾기                   |
-| 10/4 | 이분탐색      | 백준 3020 - 개똥벌레                            |
-| 10/4 | 조합          | 백준 1759 - 암호만들기                          |
-| 10/5 | DFS           | SWEA 1949 - 등산로 조성                         |
-| 10/5 | DFS           | SWEA 1952 - 수영장                              |
+| 날짜 | 문제유형      | 문제                                                         |
+| ---- | ------------- | ------------------------------------------------------------ |
+| 9/21 | 다익스트라    | [백준 1916 - 최소비용 구하기](https://www.acmicpc.net/problem/1916) |
+| 9/21 | BFS           | [백준 2206 - 벽 부수고 이동하기](https://www.acmicpc.net/problem/2206) |
+| 9/21 | 위상정렬      | [백준 1516 - 게임 개발](https://www.acmicpc.net/problem/1516) |
+| 9/22 | 그리디        | [백준 2437 - 저울](https://www.acmicpc.net/problem/2437)     |
+| 9/22 | 플로이드 와샬 | [백준 11404 - 플로이드](https://www.acmicpc.net/problem/11404) |
+| 9/22 | 문자열        | [프로그래머스 17684 - 2018 카카오 3차 압축](https://programmers.co.kr/learn/courses/30/lessons/17684) |
+| 9/23 | 문자열        | [프로그래머스 17676 - 2018 카카오 1차 추석트래픽](https://programmers.co.kr/learn/courses/30/lessons/17676) |
+| 9/23 | 이분탐색      | [백준 1939 - 중량제한](https://www.acmicpc.net/problem/1939) |
+| 9/23 | 위상정렬      | [백준 1766 - 문제집](https://www.acmicpc.net/problem/1766)   |
+| 9/23 | 비트마스크    | [백준 18119 - 단어암기](https://www.acmicpc.net/problem/18119) |
+| 9/24 | 그리디        | [프로그래머스 42885 - 구명보트](https://programmers.co.kr/learn/courses/30/lessons/42885) |
+| 9/24 | 기타          | [프로그래머스 42579 - 전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42579) |
+| 9/25 | 이분탐색      | [프로그래머스 43238 - 입국심사](https://programmers.co.kr/learn/courses/30/lessons/43238) |
+| 9/25 | 이분탐색      | [프로그래머스 43236 - 징검다리](https://programmers.co.kr/learn/courses/30/lessons/43236) |
+| 9/25 | 기타          | [프로그래머스 425784 - 주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584) |
+| 9/25 | 위상정렬      | [백준 2056 - 작업](https://www.acmicpc.net/problem/2056)     |
+| 9/25 | 투포인터      | [백준 1644 - 소수의 연속합](https://www.acmicpc.net/problem/1644) |
+| 9/28 | 브루트포스    | [백준 1182 - 부분수열의 합](https://www.acmicpc.net/problem/1182) |
+| 9/28 | DFS           | [백준 1967 - 트리의 지름](https://www.acmicpc.net/problem/1967) |
+| 9/28 | 플로이드 와샬 | [백준 2458 - 키 순서](https://www.acmicpc.net/problem/2458)  |
+| 9/28 | 백트래킹      | [백준 1062 - 가르침](https://www.acmicpc.net/problem/1062)   |
+| 10/3 | 다익스트라    | [백준 1261 - 알고스팟](https://www.acmicpc.net/problem/1261) |
+| 10/3 | BFS           | [백준 11725 - 트리의 부모 찾기](https://www.acmicpc.net/problem/11725) |
+| 10/4 | 이분탐색      | [백준 3020 - 개똥벌레](https://www.acmicpc.net/problem/3020) |
+| 10/4 | 조합          | [백준 1759 - 암호만들기](https://www.acmicpc.net/problem/1759) |
+| 10/5 | DFS           | [SWEA 1949 - 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&categoryId=AV5PoOKKAPIDFAUq&categoryType=CODE) |
+| 10/5 | DFS           | [SWEA 1952 - 수영장](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpFQaAQMDFAUq&categoryId=AV5PpFQaAQMDFAUq&categoryType=CODE) |
 
 
 
