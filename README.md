@@ -26,7 +26,7 @@
 
 
 
-### :rainbow: Week Study (2020-하반기)
+### 🧠 Week Study (2020-하반기)
 
 | 날짜 | 문제유형      | 문제                                                         |
 | ---- | ------------- | ------------------------------------------------------------ |
@@ -57,6 +57,7 @@
 | 10/4 | 조합          | [백준 1759 - 암호만들기](https://www.acmicpc.net/problem/1759) |
 | 10/5 | DFS           | [SWEA 1949 - 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&categoryId=AV5PoOKKAPIDFAUq&categoryType=CODE) |
 | 10/5 | DFS           | [SWEA 1952 - 수영장](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpFQaAQMDFAUq&categoryId=AV5PpFQaAQMDFAUq&categoryType=CODE) |
+| 10/5 | 플로이드 와샬 | 백준 10159 - 저울                               |
 
 
 
